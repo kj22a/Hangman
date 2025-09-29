@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <h1>Hangman!</h1>
+        <p>Player 1, please enter a word for Player 2 to guess:</p>
+        <input type="text" id="wordInput" placeholder="Enter a word" />
+        <button id="startButton">Start Game</button>
+
+    <script>
+        const startBtn = document.getElementById("startButton");
+
+        startBtn.addEventListener("click", () => {
+        const wordInput = document.getElementById("wordInput").value.trim();
+
+        if (wordInput === "") {
+            alert("Please enter a valid word.");
+            return;
+        }
+
+        // Store the word so the next page can access it
+        localStorage.setItem("targetWord", wordInput.toUpperCase());
+
+        // Redirect to Player 2 page
+        window.location.href = "Player2.html";
+        });
+   </script>
+</body>
+</html>
